@@ -1,0 +1,51 @@
+.card {
+  background-color: cadetblue;
+  margin: 10px;
+  height: 85px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: capitalize;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  font-weight: 600;
+}
+
+.normal {
+  border: 2px solid #fff;
+}
+
+.press {
+  border: 2px solid yellow;
+  transform: scale(1.1);
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0);
+    border-color: white;
+  }
+  25% {
+    transform: translateY(-5px);
+    border-color: red;
+  }
+  50% {
+    transform: translateY(0);
+    border-color: white;
+  }
+  75% {
+    transform: translateY(5px);
+    border-color: red;
+  }
+  100% {
+    transform: translateY(0);
+    border-color: white;
+  }
+}
+
+.wrong {
+  border: 2px solid white;
+  animation: shake 1.3s;
+}

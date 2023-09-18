@@ -1,0 +1,12 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  gap: 10px;
+  padding: 1rem 4rem 4rem;
+  background: radial-gradient(
+    circle 815px at 23.4% -21.8%,
+    rgb(9, 29, 85) 0.2%,
+    rgb(0, 0, 0) 100.2%
+  );
+}
