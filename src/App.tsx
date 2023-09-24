@@ -7,13 +7,11 @@ import { useSelector } from "react-redux";
 import { reducerType } from "./redux/types";
 
 function App() {
-  const [isStart, setIsStart] = useState<boolean>(false);
   const data = useSelector<reducerType>((state) => state.reducer.data) as any;
 
   return (
     <div className="App">
-      <Header isStart={isStart} setIsStart={setIsStart} />
-      {isStart && <Board data={data} />}
+      <Board data={data} />
       <Footer />
     </div>
   );

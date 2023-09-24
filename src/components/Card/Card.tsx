@@ -2,6 +2,7 @@ import { cardType } from "../../types/types";
 import "./Card.css";
 import { useDispatch } from "react-redux";
 import { choose_card } from "../../redux/actions";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface propsCard {
   item: cardType;

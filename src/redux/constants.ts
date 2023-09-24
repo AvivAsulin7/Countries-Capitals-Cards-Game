@@ -4,3 +4,6 @@ export const RESET_WRONG_FIELD = "RESET_WRONG_FIELD";
 export const CHANGE_WRONG_FIELD = "CHANGE_WRONG_FIELD";
 
 export const INCORRECT_MATCH = "INCORRECT_MATCH";
+
+export const HARD = "HARD";
+export const EASY = "EASY";

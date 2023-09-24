@@ -1,25 +1,32 @@
 import { Dispatch, SetStateAction } from "react";
 import "./Header.css";
+import logo from "../../images/logo.png";
+import { AnimatePresence, motion } from "framer-motion";
+import arrowRight from "../../images/arrowRight.png";
+import arrowRightGif from "../../images/arrowRightGif.gif";
 
-interface propsHeader {
-  isStart: boolean;
-  setIsStart: Dispatch<SetStateAction<boolean>>;
-}
-
-const Header = ({ isStart, setIsStart }: propsHeader) => {
+const Header = () => {
   return (
     <div className="header">
-      <h1>Welcome to Countries-Capital City Game!</h1>
-      {!isStart && (
-        <>
+      <div>
+        <h1>Countries </h1> <h1> -Capital </h1> <h1> City Game!</h1>
+        <img src={logo} alt="logo" className="logo" />
+      </div>
+      <AnimatePresence>
+        <motion.div
+          className="info-game"
+          exit={{
+            opacity: 0,
+            transition: { duration: 0.5 },
+          }}
+        >
           <p>
             In this game, you have to match the capital city to the country that
             matches it, the goal is to succeed in all the matches.
           </p>
           <p>Want to play? Click below </p>
-          <button onClick={() => setIsStart((prev) => !prev)}>Start</button>
-        </>
-      )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

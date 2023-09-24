@@ -13,3 +13,15 @@ export interface actionType {
 export interface reducerType {
   reducer: initialStateType;
 }
+
+////////// Setting Reducer ///////////
+
+export interface initialStateSettingType {
+  numOfMistakes: number;
+  numOfCards: number;
+  level: string;
+}
+
+export interface settingReducerType {
+  reducer: initialStateType;
+}

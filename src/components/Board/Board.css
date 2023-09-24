@@ -1,12 +1,46 @@
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid black;
-  gap: 10px;
-  padding: 1rem 4rem 4rem;
+.board {
   background: radial-gradient(
     circle 815px at 23.4% -21.8%,
     rgb(9, 29, 85) 0.2%,
     rgb(0, 0, 0) 100.2%
   );
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid black;
+  gap: 10px;
+}
+
+.buttons {
+  width: 70%;
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  align-self: center;
+  background-color: #fff;
+  border-radius: 20%;
+  border: none;
+  padding: 8px;
+  box-shadow: 0 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
+}
+
+.btn img {
+  width: 60px;
+  height: 60px;
+}
+
+.btn#left {
+  transform: rotateY(180deg);
 }

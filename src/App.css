@@ -1,17 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Diphylleia&display=swap");
 
 .App {
-  padding-top: 4rem;
+  margin: 0;
   text-align: center;
-  min-height: 100vh;
   font-family: "Diphylleia";
-  background: radial-gradient(
-    circle 815px at 23.4% -21.8%,
-    rgb(9, 29, 85) 0.2%,
-    rgb(0, 0, 0) 100.2%
-  );
+  background-color: #f0f0f0;
+  height: 100vh;
   color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
