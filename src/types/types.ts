@@ -25,3 +25,10 @@ export interface cardType {
   onPress: boolean;
   isWrong: boolean;
 }
+export interface preferenceType {
+  title: string;
+  image: string;
+  state: number | string;
+  setState: (option: number | string) => void;
+  arguments: (number | string)[];
+}

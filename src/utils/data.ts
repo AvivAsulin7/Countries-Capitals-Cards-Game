@@ -1,37 +1,44 @@
 import { countreyType } from "../types/types";
-
+import questionMark from "../images/questionMark.jpg";
 const CAPITAL = "capital";
 const COUNTRY = "country";
 
 const wcc = require("world-countries-capitals");
-const data = wcc.getNRandomCountriesData(3);
 
-let objectsArray: any[] = [];
+export default (amount: number) => {
+  console.log("LENGTHHHHH", Math.floor(amount / 2));
 
-data.forEach((item: countreyType) => {
-  // Add the country object
-  objectsArray.push({
-    title: item.country,
-    type: COUNTRY,
-    match: item.capital,
-    img: item.flag,
-    onPress: false,
-    isWrong: false,
+  const data = wcc.getNRandomCountriesData(Math.floor(amount / 2));
+
+  console.log("LENGTHHHHH2222222", amount);
+
+  let objectsArray: any[] = [];
+
+  data.forEach((item: countreyType) => {
+    // Add the country object
+    objectsArray.push({
+      title: item.country,
+      type: COUNTRY,
+      match: item.capital,
+      img: item.flag,
+      onPress: false,
+      isWrong: false,
+    });
+
+    // Add the capital object
+    objectsArray.push({
+      title: item.capital,
+      type: CAPITAL,
+      match: item.country,
+      img: questionMark,
+      onPress: false,
+      isWrong: false,
+    });
   });
 
-  // Add the capital object
-  objectsArray.push({
-    title: item.capital,
-    type: CAPITAL,
-    match: item.country,
-    img: "https://media.istockphoto.com/id/1143248834/vector/question-mark-red-neon-light-on-black-wall.jpg?s=612x612&w=0&k=20&c=Ram3c9tYnfDx6gs-6AfDAnui2znKkqO5_zEF6WFZLjk=",
-    onPress: false,
-    isWrong: false,
-  });
-});
+  objectsArray = objectsArray.sort(() => Math.random() - 0.5);
 
-objectsArray = objectsArray.sort(() => Math.random() - 0.5);
+  console.log(objectsArray);
 
-console.log(objectsArray);
-
-export default objectsArray;
+  return objectsArray;
+};

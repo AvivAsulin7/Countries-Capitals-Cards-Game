@@ -7,7 +7,7 @@ export interface initialStateType {
 
 export interface actionType {
   type: string;
-  payload: cardType;
+  payload: cardType | number;
 }
 
 export interface reducerType {
@@ -19,9 +19,15 @@ export interface reducerType {
 export interface initialStateSettingType {
   numOfMistakes: number;
   numOfCards: number;
-  level: string;
+  difficulty: string;
+  isPlaying: boolean;
 }
 
 export interface settingReducerType {
-  reducer: initialStateType;
+  settingReducer: initialStateSettingType;
+}
+
+export interface SettingActionType {
+  type: string;
+  payload: string | number;
 }

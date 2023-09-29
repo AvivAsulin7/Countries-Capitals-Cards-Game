@@ -1,8 +1,11 @@
 import { cardType } from "../../types/types";
 import "./Card.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { choose_card } from "../../redux/actions";
 import { motion, AnimatePresence } from "framer-motion";
+import { settingReducerType } from "../../redux/types";
+import { HARD } from "../../redux/constants";
+import questionMark from "../../images/questionMark.jpg";
 
 interface propsCard {
   item: cardType;
@@ -11,10 +14,16 @@ interface propsCard {
 }
 
 const Card = ({ item, data, handleChoiceUser }: propsCard) => {
+  const { settingReducer } = useSelector<settingReducerType>(
+    (state) => state
+  ) as any;
+
   const dispatch = useDispatch();
 
   const backgroundImageCard = {
-    background: `linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(${item.img}) no-repeat`,
+    background: `linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(${
+      settingReducer.difficulty == HARD ? questionMark : item.img
+    }) no-repeat`,
     backgroundSize: "cover",
   };
 

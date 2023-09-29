@@ -1,0 +1,46 @@
+.preferences {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preferences-div {
+  display: flex;
+}
+
+.preference {
+  padding: 10px;
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  background-color: #272829;
+  border-radius: 20%;
+  box-shadow: 0 0 0 5px #272829, 0 0 10px #272829, 0 0 15px #272829,
+    0 0 20px #272829;
+}
+
+/* Style for the options */
+.options {
+  margin: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Style for each option */
+.option {
+  font-size: larger;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #272829;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the selected option */
+.option.selected {
+  background-color: #007bff; /* Change to your preferred color */
+  color: #fff;
+}

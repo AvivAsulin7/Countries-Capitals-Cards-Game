@@ -11,8 +11,10 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "framer-motion": "^10.16.4",
+    "howler": "^2.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-howler": "^5.2.0",
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.2",
     "react-scripts": "5.0.1",
@@ -44,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-howler": "^5.2.1"
   }
 }

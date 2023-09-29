@@ -1,0 +1,26 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 30px;
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  background-color: #272829;
+  color: #fff;
+  border-radius: 20%;
+  box-shadow: 0 0 0 5px #272829, 0 0 10px #272829, 0 0 15px #272829,
+    0 0 20px #272829;
+}
+
+.mistake {
+  width: 30px;
+  height: 30px;
+}
+
+.sound {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}

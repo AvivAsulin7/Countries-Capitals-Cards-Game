@@ -1,4 +1,5 @@
 import {
+  GET_GAME_CARDS,
   CHANGE_WRONG_FIELD,
   CHOOSE_CARD,
   CORRECT_MATCH,
@@ -7,15 +8,20 @@ import {
 } from "./constants";
 import { cardType } from "../types/types";
 import { initialStateType, actionType } from "./types";
-import objectsArray from "../utils/data";
+import getGameCards from "../utils/data";
 
 const initialState: initialStateType = {
-  data: objectsArray,
+  data: getGameCards(10),
   userChoice: [],
 };
 
 export default (state = initialState, action: actionType) => {
   switch (action.type) {
+    case GET_GAME_CARDS:
+      if (typeof action.payload === "number")
+        return { ...state, data: getGameCards(action.payload) };
+      else return state;
+
     case CHOOSE_CARD:
       if (!state.userChoice.find((item: cardType) => item === action.payload))
         return {

@@ -15,6 +15,9 @@ import rightArrow from "../../images/rightArrow.png";
 import leftArrow from "../../images/leftArrow.png";
 import Preferences from "../Preferences/Preferences";
 import { variants } from "../../animation/variants";
+import { useStepper } from "../../hooks/useStepper";
+import Status from "../Status/Status";
+import MusicBox from "../MusicBox/MusicBox";
 
 const LEFT = "LEFT";
 const RIGHT = "RIGHT";
@@ -25,22 +28,14 @@ interface PropsBoard {
 
 const Board = ({ data }: PropsBoard) => {
   const globalState = useSelector<reducerType>((state) => state.reducer) as any;
+  const { numStep, handleStepsButtons } = useStepper();
   const dispatch = useDispatch();
-  const [numStep, setNumStep] = useState<number>(1);
 
   useEffect(() => {
     if (globalState.userChoice.length === 2) {
       handleChoiceUser();
     }
   }, [globalState.userChoice]);
-
-  const handleStepsButtons = (event: MouseEvent<HTMLButtonElement>) => {
-    const directionArrow = event.currentTarget.name;
-    if (numStep === 1 && directionArrow === LEFT) return;
-    if (directionArrow === LEFT) setNumStep((prev) => prev - 1);
-    else if (directionArrow === RIGHT) setNumStep((prev) => prev + 1);
-    console.log(numStep);
-  };
 
   const handleChoiceUser = () => {
     let first: cardType = globalState.userChoice[0];
@@ -66,66 +61,61 @@ const Board = ({ data }: PropsBoard) => {
 
   return (
     <div className="board">
-      {numStep === 1 && <Header />}
-      {numStep != 3 && (
-        <div className="buttons">
-          <motion.button
+      <AnimatePresence>
+        {numStep === 1 && (
+          <motion.div
             variants={variants}
+            exit="exit"
             animate="visible"
             initial="hidden"
-            whileHover={{ scale: 1.2 }}
-            className="btn"
-            name="left"
-            onClick={(event: MouseEvent<HTMLButtonElement>) =>
-              handleStepsButtons(event)
-            }
           >
-            <img src={leftArrow}></img>
-          </motion.button>
-          <motion.button
-            variants={variants}
-            animate="visible"
-            initial="hidden"
-            whileHover={{ scale: 1.2 }}
-            className="btn"
-            name="right"
-            onClick={(event: MouseEvent<HTMLButtonElement>) =>
-              handleStepsButtons(event)
-            }
-          >
-            <img src={rightArrow}></img>
-          </motion.button>
-        </div>
-      )}
+            <Header />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {numStep === 2 && <Preferences />}
+      {/* ------------------------------------------------------------------------------ */}
+
+      <AnimatePresence>
+        {numStep === 2 && (
+          <motion.div
+            variants={variants}
+            exit="exit"
+            animate="visible"
+            initial="hidden"
+          >
+            <Preferences />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ------------------------------------------------------------------------------ */}
 
       {numStep === 3 &&
         (data.length > 1 ? (
-          <div className="cards">
-            <AnimatePresence>
-              {data.map((item: cardType, index: number) => (
-                <motion.div
-                  variants={variants}
-                  key={index}
-                  animate="visible"
-                  initial="hidden"
-                  whileHover={{ scale: 1.2 }}
-                  exit={{
-                    rotate: 360,
-                    scale: 0,
-                    transition: { duration: 0.4 },
-                  }}
-                >
-                  <Card
+          <div>
+            <Status />
+            <div className="cards">
+              <AnimatePresence>
+                {data.map((item: cardType, index: number) => (
+                  <motion.div
+                    variants={variants}
                     key={index}
-                    item={item}
-                    data={data}
-                    handleChoiceUser={handleChoiceUser}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                    animate="visible"
+                    initial="hidden"
+                    whileHover={{ scale: 1.2 }}
+                    exit="afterMatch"
+                  >
+                    <Card
+                      key={index}
+                      item={item}
+                      data={data}
+                      handleChoiceUser={handleChoiceUser}
+                    />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
         ) : (
           <motion.h2
@@ -135,6 +125,45 @@ const Board = ({ data }: PropsBoard) => {
             You Win !
           </motion.h2>
         ))}
+
+      {/* ------------------------------------------------------------------------------ */}
+
+      <AnimatePresence>
+        {numStep != 3 && (
+          <motion.div
+            variants={variants}
+            animate="visibleArrows"
+            initial="hidden"
+            className="buttons"
+            exit="exitArrows"
+          >
+            <motion.button
+              whileHover={{
+                scale: 1.2,
+                opacity: numStep === 1 ? 0 : 1,
+                cursor: numStep === 1 ? "default" : "pointer",
+              }}
+              className="btn"
+              name={LEFT}
+              onClick={(event: MouseEvent<HTMLButtonElement>) =>
+                handleStepsButtons(event)
+              }
+            >
+              <img src={leftArrow}></img>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              className="btn"
+              name={RIGHT}
+              onClick={(event: MouseEvent<HTMLButtonElement>) =>
+                handleStepsButtons(event)
+              }
+            >
+              <img src={rightArrow}></img>
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

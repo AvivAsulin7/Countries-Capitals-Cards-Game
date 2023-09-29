@@ -1,31 +1,32 @@
 import {
-  CHANGE_WRONG_FIELD,
-  CHOOSE_CARD,
-  CORRECT_MATCH,
-  INCORRECT_MATCH,
-  RESET_WRONG_FIELD,
+  CHANGE_NUM_OF_MISTAKES,
+  CHANGE_DIFFICULTY,
+  CHANGE_NUM_OF_CARDS,
   HARD,
   EASY,
+  HANDLE_MUSIC,
 } from "./constants";
-import { actionType, initialStateSettingType } from "./types";
+import { SettingActionType, initialStateSettingType } from "./types";
 
 const initialState: initialStateSettingType = {
-  numOfMistakes: 3,
-  numOfCards: 5,
-  level: HARD,
+  numOfMistakes: 1,
+  numOfCards: 10,
+  difficulty: EASY,
+  isPlaying: false,
 };
 
-export default (state = initialState, action: actionType) => {
+export default (state = initialState, action: SettingActionType) => {
   switch (action.type) {
-    case CHOOSE_CARD:
+    case CHANGE_NUM_OF_MISTAKES:
+      return { ...state, numOfMistakes: action.payload };
 
-    case CORRECT_MATCH:
+    case CHANGE_DIFFICULTY:
+      return { ...state, difficulty: action.payload };
 
-    case INCORRECT_MATCH:
-
-    case CHANGE_WRONG_FIELD:
-
-    case RESET_WRONG_FIELD:
+    case CHANGE_NUM_OF_CARDS:
+      return { ...state, numOfCards: action.payload };
+    case HANDLE_MUSIC:
+      return { ...state, isPlaying: !state.isPlaying };
 
     default:
       return state;
