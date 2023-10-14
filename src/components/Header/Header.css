@@ -1,26 +1,37 @@
-.header {
-}
-
 .header div {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.header div h1:first-child {
-  color: rgb(60, 230, 250);
-}
-
-.header div h1:nth-child(2) {
-  color: #b0d9b1;
-  margin-right: 12px;
+.header div h1 {
+  color: #fff;
 }
 
 .logo {
-  height: 70px;
-  width: 80px;
+  height: 160px;
+  width: 160px;
+  margin-left: 50px;
+  box-shadow: 0 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff;
+  border-radius: 50%;
 }
 
 .info-game {
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  .header div h1 {
+    font-size: 1.7rem;
+  }
+
+  .header div {
+    width: 95%;
+  }
+
+  .logo {
+    margin-left: 30px;
+  }
 }

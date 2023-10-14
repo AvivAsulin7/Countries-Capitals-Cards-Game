@@ -2,10 +2,12 @@ import {
   CHANGE_DIFFICULTY,
   CHANGE_NUM_OF_CARDS,
   CHANGE_NUM_OF_MISTAKES,
+  DECREMENT_MISTAKES,
   GET_GAME_CARDS,
   HANDLE_MUSIC,
   INCORRECT_MATCH,
   RESET_WRONG_FIELD,
+  RESTART_GAME,
 } from "./constants";
 import { CORRECT_MATCH, CHOOSE_CARD } from "../redux/constants";
 import { cardType } from "../types/types";
@@ -50,6 +52,11 @@ export const change_num_of_mistakes = (value: number) => ({
   payload: value,
 });
 
+export const decrement_mistakes = () => ({
+  // ({}) == return {}
+  type: DECREMENT_MISTAKES,
+});
+
 export const change_difficulty = (value: string) => ({
   // ({}) == return {}
   type: CHANGE_DIFFICULTY,
@@ -65,4 +72,9 @@ export const change_num_of_cards = (value: number) => ({
 export const handle_music = () => ({
   // ({}) == return {}
   type: HANDLE_MUSIC,
+});
+
+export const restart_game = () => ({
+  // ({}) == return {}
+  type: RESTART_GAME,
 });

@@ -1,14 +1,27 @@
 import "./Header.css";
-import logo from "../../images/logo.png";
-import { AnimatePresence, motion } from "framer-motion";
+import logo from "../../images/countries.webp";
 import { variants } from "../../animation/variants";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <div className="header">
+    <motion.div
+      className="header"
+      variants={variants}
+      exit="exit"
+      animate="visible"
+      initial="hidden"
+    >
       <div>
-        <h1>Countries </h1> <h1> -Capital </h1> <h1> City Game</h1>
-        <img src={logo} alt="logo" className="logo" />
+        <h1>Countries - Capital City Game</h1>
+        <motion.img
+          variants={variants}
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 3, repeat: Infinity }}
+          src={logo}
+          alt="logo"
+          className="logo"
+        />
       </div>
 
       <div className="info-game">
@@ -18,7 +31,7 @@ const Header = () => {
         </p>
         <p>Want to play? let's go! </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

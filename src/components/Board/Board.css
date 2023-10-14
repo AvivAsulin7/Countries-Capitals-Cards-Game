@@ -1,31 +1,17 @@
-.board {
+.board-game {
   background: radial-gradient(
     circle 815px at 23.4% -21.8%,
     rgb(9, 29, 85) 0.2%,
     rgb(0, 0, 0) 100.2%
   );
-  padding: 1rem;
+  padding-bottom: 2rem;
+}
 
-  min-height: 100vh;
+.board {
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.cards {
-  display: flex;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  border: 1px solid black;
-  gap: 10px;
-}
-
-.buttons {
-  width: 70%;
-  margin: 50px auto 0;
-  display: flex;
-  justify-content: space-between;
 }
 
 .btn {

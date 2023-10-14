@@ -1,19 +1,14 @@
-import { cardType } from "../../types/types";
+import { cardType, propsCard } from "../../types/types";
 import "./Card.css";
 import { useDispatch, useSelector } from "react-redux";
 import { choose_card } from "../../redux/actions";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { settingReducerType } from "../../redux/types";
 import { HARD } from "../../redux/constants";
 import questionMark from "../../images/questionMark.jpg";
+import { variants } from "../../animation/variants";
 
-interface propsCard {
-  item: cardType;
-  data: cardType[];
-  handleChoiceUser: () => void;
-}
-
-const Card = ({ item, data, handleChoiceUser }: propsCard) => {
+const Card = ({ item, key }: propsCard) => {
   const { settingReducer } = useSelector<settingReducerType>(
     (state) => state
   ) as any;
@@ -36,13 +31,19 @@ const Card = ({ item, data, handleChoiceUser }: propsCard) => {
   };
 
   return (
-    <div
+    <motion.div
+      variants={variants}
+      key={key}
+      animate="visible"
+      initial="hidden"
+      whileHover={{ scale: 1.2 }}
+      exit="afterMatch"
       className={` card ${item.onPress && " press"} ${item.isWrong && "wrong"}`}
       onClick={handleClickCard}
       style={backgroundImageCard}
     >
       {item.title}
-    </div>
+    </motion.div>
   );
 };
 

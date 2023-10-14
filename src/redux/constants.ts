@@ -13,3 +13,5 @@ export const CHANGE_NUM_OF_MISTAKES = "change num of mistakes";
 export const CHANGE_DIFFICULTY = "change difficulty";
 export const CHANGE_NUM_OF_CARDS = "change num of cards";
 export const HANDLE_MUSIC = "handle_music";
+export const DECREMENT_MISTAKES = "decrement_mistakes";
+export const RESTART_GAME = "restart_game";

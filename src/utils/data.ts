@@ -6,11 +6,7 @@ const COUNTRY = "country";
 const wcc = require("world-countries-capitals");
 
 export default (amount: number) => {
-  console.log("LENGTHHHHH", Math.floor(amount / 2));
-
   const data = wcc.getNRandomCountriesData(Math.floor(amount / 2));
-
-  console.log("LENGTHHHHH2222222", amount);
 
   let objectsArray: any[] = [];
 

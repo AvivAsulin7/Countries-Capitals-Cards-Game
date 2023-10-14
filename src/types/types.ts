@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 export type countreyType = {
   alcohol_prohibition: string;
   area: { km2: number; mi2: number };
@@ -31,4 +33,27 @@ export interface preferenceType {
   state: number | string;
   setState: (option: number | string) => void;
   arguments: (number | string)[];
+}
+
+export interface propsResultAndArrows {
+  numStep?: number;
+  handleStepsButtons: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface PropsBoard {
+  data: cardType[];
+}
+
+export interface propsCard {
+  item: cardType;
+  key: number;
+}
+
+export interface propsGame {
+  data: cardType[];
+  isGoodMatch: boolean | null | undefined;
+}
+
+export interface statusProps {
+  isGoodMatch: boolean | null | undefined;
 }

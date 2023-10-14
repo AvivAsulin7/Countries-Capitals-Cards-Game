@@ -1,21 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import sound from "../../images/sound.png";
 import noSound from "../../images/noSound.png";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import "./MusicBox.css";
-import { useDispatch, useSelector } from "react-redux";
-import { settingReducerType } from "../../redux/types";
-import { handle_music } from "../../redux/actions";
 import { motion } from "framer-motion";
 import { variants } from "../../animation/variants";
 
-type Props = {};
-
-const MusicBox = (props: Props) => {
-  const settingReducer = useSelector<settingReducerType>(
-    (state) => state.settingReducer
-  ) as any;
-  const dispatch = useDispatch();
+const MusicBox = () => {
+  const [playSound, setPlaySound] = useState(false);
 
   const src = require("../../audio/music.mp3");
 
@@ -26,29 +18,23 @@ const MusicBox = (props: Props) => {
   });
 
   useEffect(() => {
-    settingReducer.isPlaying ? music.play() : music.pause();
+    playSound ? music.play() : music.stop();
     return () => {
       music.unload();
     };
-  }, [settingReducer.isPlaying]);
+  }, [playSound]);
 
-  const handleMusic = () => {
-    dispatch(handle_music());
-  };
-  console.log(settingReducer.isPlaying);
   return (
-    <>
-      <motion.img
-        variants={variants}
-        className="music-icon"
-        src={settingReducer.isPlaying ? sound : noSound}
-        onClick={handleMusic}
-        whileHover="hoverMusicButton"
-        initial="down"
-        whileTap="up"
-        transition={{ type: "spring", stiffness: 500, damping: 20 }}
-      ></motion.img>
-    </>
+    <motion.img
+      variants={variants}
+      className="music-icon"
+      src={playSound ? sound : noSound}
+      onClick={() => setPlaySound((prev) => !prev)}
+      whileHover="hoverMusicButton"
+      initial="down"
+      whileTap="up"
+      transition={{ type: "spring", stiffness: 500, damping: 20 }}
+    ></motion.img>
   );
 };
 

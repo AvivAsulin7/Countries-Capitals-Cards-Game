@@ -1,31 +1,80 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./Status.css";
 import { settingReducerType } from "../../redux/types";
 import { useSelector } from "react-redux";
-import { VscError } from "react-icons/vsc";
 import Box from "../reusable-components/Box/Box";
-import sound from "../../images/sound.png";
-import noSound from "../../images/noSound.png";
-import MusicBox from "../MusicBox/MusicBox";
+import { motion } from "framer-motion";
+import { variants } from "../../animation/variants";
+import { statusProps } from "../../types/types";
 
-type Props = {};
+const negativeFeedback = ["Wrong!", "Try again", "Bad!", "Keep trying"];
+const positiveFeedback = [
+  "Great!",
+  "You're on the right way!",
+  "You're a Mater",
+  "Good Job!",
+  "Perfect Match",
+];
 
-const Status = (props: Props) => {
+const Status = ({ isGoodMatch }: statusProps) => {
   const settingReducer = useSelector<settingReducerType>(
     (state) => state.settingReducer
   ) as any;
-  console.log(settingReducer);
 
-  const isMistakeIcon = true;
+  const generalMistakes = useRef(settingReducer.numOfMistakes).current;
+
+  const isStatusComponent = true;
 
   return (
-    <div className="status">
-      <Box isMistakeIcon={isMistakeIcon}>
-        {Array.from({ length: settingReducer.numOfMistakes }, (_, index) => (
-          <VscError color="red" size={25} />
-        ))}
+    <motion.div
+      className="status"
+      variants={variants}
+      initial="hiddenStatus"
+      animate="visibleStatus"
+    >
+      <Box isStatusComponent={isStatusComponent}>
+        <div className="container-status">
+          <h2>Your Life Points:</h2>
+          <div>
+            <motion.h3
+              className={`${settingReducer.numOfMistakes === 1 && "beat"}`}
+              variants={variants}
+              initial="normal"
+              animate={settingReducer.numOfMistakes === 1 && "beat"}
+            >
+              {settingReducer.numOfMistakes}
+            </motion.h3>
+            <h3>/</h3>
+            <h3>{generalMistakes}</h3>
+            <motion.div
+              className="heart"
+              variants={variants}
+              initial="normal"
+              animate={settingReducer.numOfMistakes === 1 && "beat"}
+            >
+              ❤️
+            </motion.div>
+          </div>
+        </div>
       </Box>
-    </div>
+
+      <Box isStatusComponent={isStatusComponent}>
+        <div className="container-status">
+          <h2>Status:</h2>
+          <motion.h3 className="feedback">
+            {isGoodMatch === true
+              ? positiveFeedback[
+                  Math.floor(Math.random() * negativeFeedback.length)
+                ]
+              : isGoodMatch === false
+              ? negativeFeedback[
+                  Math.floor(Math.random() * positiveFeedback.length)
+                ]
+              : isGoodMatch === null && "GOOD LUCK!"}
+          </motion.h3>
+        </div>
+      </Box>
+    </motion.div>
   );
 };
 

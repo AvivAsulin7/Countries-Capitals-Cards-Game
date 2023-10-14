@@ -20,7 +20,6 @@ export interface initialStateSettingType {
   numOfMistakes: number;
   numOfCards: number;
   difficulty: string;
-  isPlaying: boolean;
 }
 
 export interface settingReducerType {

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import react, { useEffect } from "react";
 import "./Preferences.css";
 import countries from "../../images/countries.png";
 import mistakes from "../../images/mistakes.png";
@@ -12,22 +12,25 @@ import {
   change_num_of_cards,
   change_num_of_mistakes,
   get_game_cards,
+  restart_game,
 } from "../../redux/actions";
 import Box from "../reusable-components/Box/Box";
+import { motion, AnimatePresence } from "framer-motion";
+import { variants } from "../../animation/variants";
 
 const Preferences = () => {
-  // const [selectedMistakes, setSelectedMistakes] = useState<number>(1);
-  // const [selectedDifficulty, setselectedDifficulty] = useState<string>(EASY);
-  // const [seelectedNumCards, setSelectedNumCards] = useState<number>(10);
-  const { reducer, settingReducer } = useSelector<settingReducerType>(
+  const { settingReducer } = useSelector<settingReducerType>(
     (state) => state
   ) as any;
 
   console.log(settingReducer);
 
-  const disptach = useDispatch();
+  useEffect(() => {
+    disptach(restart_game());
+    disptach(get_game_cards(10));
+  }, []);
 
-  // כנראה לבטל את יוס - רדוסר שבניתי, כי יש את הסטניג רדוסר הכללי שצריך להשתמש בו וככה נמנע פעמיים עדכון גם בלוקלי וגם בגלובלי (מספיק לעדכן ברדיקס ולהציג למסך)
+  const disptach = useDispatch();
 
   const preferencesArray: preferenceType[] = [
     {
@@ -56,7 +59,6 @@ const Preferences = () => {
       setState: (option: number | string) => {
         if (typeof option === "number") {
           disptach(change_num_of_cards(option));
-          console.log("sdfsdljflksdfl", option);
           disptach(get_game_cards(option));
         }
       },
@@ -65,35 +67,43 @@ const Preferences = () => {
   ];
 
   return (
-    <div className="preferences">
-      <h1>Select your preferences</h1>
-      <div className="preferences-div">
-        {preferencesArray.map((preference) => {
-          return (
-            <Box>
-              <h4>{preference.title}</h4>
-              <div>
-                <img src={preference.image}></img>
-              </div>
-              <div className="options">
-                {preference.arguments.map((option) => {
-                  return (
-                    <div
-                      className={`option ${
-                        preference.state === option ? "selected" : ""
-                      }`}
-                      onClick={() => preference.setState(option)}
-                    >
-                      {option}
-                    </div>
-                  );
-                })}
-              </div>
-            </Box>
-          );
-        })}
-      </div>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        className="preferences"
+        variants={variants}
+        exit="exit"
+        animate="visible"
+        initial="hidden"
+      >
+        <h1>Select your preferences</h1>
+        <div className="preferences-div">
+          {preferencesArray.map((preference) => {
+            return (
+              <Box>
+                <h4>{preference.title}</h4>
+                <div>
+                  <img src={preference.image}></img>
+                </div>
+                <div className="options">
+                  {preference.arguments.map((option) => {
+                    return (
+                      <div
+                        className={`option ${
+                          preference.state === option ? "selected" : ""
+                        }`}
+                        onClick={() => preference.setState(option)}
+                      >
+                        {option}
+                      </div>
+                    );
+                  })}
+                </div>
+              </Box>
+            );
+          })}
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

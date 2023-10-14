@@ -1,0 +1,23 @@
+.restart {
+  border: 1px solid #fff;
+  border-radius: 20%;
+  padding: 15px 15px 14px;
+  cursor: pointer;
+}
+
+.restart:hover {
+  color: #fff;
+  background-color: transparent;
+}
+
+.win-lose {
+  width: 100px;
+  border-radius: 20%;
+  margin-bottom: 20px;
+}
+
+.div-win-lose {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

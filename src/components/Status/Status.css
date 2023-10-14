@@ -1,5 +1,4 @@
 .status {
-  margin: 0 1rem 4rem;
   padding: 1rem;
   background-color: #141e46;
   color: black;
@@ -7,5 +6,47 @@
   border: 3px solid black;
   border-radius: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  color: #fff;
+  width: 50%;
+  margin: auto;
+}
+
+.container-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-status h2 {
+  color: #ee9322;
+}
+
+.status h3 {
+  margin: 0.1rem;
+}
+
+.heart {
+  font-size: 1.2rem;
+}
+
+.beat {
+  color: red;
+}
+
+@media (max-width: 480px) {
+  .status {
+    width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .feedback {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1023px) {
+  .status {
+    width: 80%;
+  }
 }

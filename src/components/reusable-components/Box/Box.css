@@ -3,8 +3,8 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  padding: 30px;
-  margin: 20px;
+  padding: 15px;
+  margin: 15px;
   width: 200px;
   height: 200px;
   background-color: #272829;
@@ -14,13 +14,12 @@
     0 0 20px #272829;
 }
 
-.mistake {
-  width: 30px;
-  height: 30px;
+.statusComponent {
+  width: 100%;
+  height: 100px;
 }
 
-.sound {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
+.statusComponent div {
+  display: flex;
+  margin: auto;
 }

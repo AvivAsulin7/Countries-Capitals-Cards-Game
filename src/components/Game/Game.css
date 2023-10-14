@@ -1,0 +1,41 @@
+.container-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 75vh;
+}
+
+.cards {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 100px 100px;
+  gap: 30px;
+  margin: auto;
+}
+
+@media (max-width: 480px) {
+  .container-cards {
+    min-height: 100vh;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+
+  .board-game {
+    padding-top: 6rem;
+  }
+
+  .buttons {
+    width: 90%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+  }
+}

@@ -1,33 +1,29 @@
 import { useEffect, useState, MouseEvent } from "react";
 import "./Board.css";
-import Card from "../Card/Card";
-import { cardType } from "../../types/types";
+import { PropsBoard, cardType } from "../../types/types";
 import { useDispatch, useSelector } from "react-redux";
 import {
   correct_match,
+  decrement_mistakes,
   incorrect_match,
   reset_wrong_field,
 } from "../../redux/actions";
-import { reducerType } from "../../redux/types";
+import { reducerType, settingReducerType } from "../../redux/types";
 import Header from "../Header/Header";
-import { AnimatePresence, motion } from "framer-motion";
-import rightArrow from "../../images/rightArrow.png";
-import leftArrow from "../../images/leftArrow.png";
 import Preferences from "../Preferences/Preferences";
-import { variants } from "../../animation/variants";
 import { useStepper } from "../../hooks/useStepper";
-import Status from "../Status/Status";
-import MusicBox from "../MusicBox/MusicBox";
-
-const LEFT = "LEFT";
-const RIGHT = "RIGHT";
-
-interface PropsBoard {
-  data: cardType[];
-}
+import Arrows from "../Arrows/Arrows";
+import Result from "../Result/Result";
+import Game from "../Game/Game";
 
 const Board = ({ data }: PropsBoard) => {
   const globalState = useSelector<reducerType>((state) => state.reducer) as any;
+  const settingReducer = useSelector<settingReducerType>(
+    (state) => state.settingReducer
+  ) as any;
+  const [isGoodMatch, setIsGoodMatch] = useState<boolean | null | undefined>(
+    null
+  );
   const { numStep, handleStepsButtons } = useStepper();
   const dispatch = useDispatch();
 
@@ -42,11 +38,10 @@ const Board = ({ data }: PropsBoard) => {
     let second: cardType = globalState.userChoice[1];
     console.log(first, second);
     if (first.title === second.match || first.match === second.title) {
-      console.log("CORRECT ANSWER");
+      setIsGoodMatch(true);
       dispatch(correct_match());
     } else {
-      console.log("INCORRECT ANSWER");
-
+      setIsGoodMatch(false);
       globalState.data.forEach(async (item: cardType) => {
         if (item === first || item === second) {
           item.isWrong = true;
@@ -55,115 +50,37 @@ const Board = ({ data }: PropsBoard) => {
           dispatch(reset_wrong_field());
         }, 1200);
       });
+
       dispatch(incorrect_match());
+      dispatch(decrement_mistakes());
     }
+
+    setTimeout(() => {
+      setIsGoodMatch(undefined);
+    }, 1200);
   };
 
   return (
-    <div className="board">
-      <AnimatePresence>
-        {numStep === 1 && (
-          <motion.div
-            variants={variants}
-            exit="exit"
-            animate="visible"
-            initial="hidden"
-          >
-            <Header />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="board-game">
+      <div className="board">
+        {numStep === 1 && <Header />}
 
-      {/* ------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------ */}
 
-      <AnimatePresence>
-        {numStep === 2 && (
-          <motion.div
-            variants={variants}
-            exit="exit"
-            animate="visible"
-            initial="hidden"
-          >
-            <Preferences />
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {numStep === 2 && <Preferences />}
 
-      {/* ------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------ */}
 
-      {numStep === 3 &&
-        (data.length > 1 ? (
-          <div>
-            <Status />
-            <div className="cards">
-              <AnimatePresence>
-                {data.map((item: cardType, index: number) => (
-                  <motion.div
-                    variants={variants}
-                    key={index}
-                    animate="visible"
-                    initial="hidden"
-                    whileHover={{ scale: 1.2 }}
-                    exit="afterMatch"
-                  >
-                    <Card
-                      key={index}
-                      item={item}
-                      data={data}
-                      handleChoiceUser={handleChoiceUser}
-                    />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
-          </div>
-        ) : (
-          <motion.h2
-            style={{ color: "white" }}
-            animate={{ rotate: 360, scale: 1 }}
-          >
-            You Win !
-          </motion.h2>
-        ))}
+        {numStep === 3 &&
+          (data.length > 1 && settingReducer.numOfMistakes >= 1 ? (
+            <Game data={data} isGoodMatch={isGoodMatch} />
+          ) : (
+            <Result handleStepsButtons={handleStepsButtons} />
+          ))}
 
-      {/* ------------------------------------------------------------------------------ */}
-
-      <AnimatePresence>
-        {numStep != 3 && (
-          <motion.div
-            variants={variants}
-            animate="visibleArrows"
-            initial="hidden"
-            className="buttons"
-            exit="exitArrows"
-          >
-            <motion.button
-              whileHover={{
-                scale: 1.2,
-                opacity: numStep === 1 ? 0 : 1,
-                cursor: numStep === 1 ? "default" : "pointer",
-              }}
-              className="btn"
-              name={LEFT}
-              onClick={(event: MouseEvent<HTMLButtonElement>) =>
-                handleStepsButtons(event)
-              }
-            >
-              <img src={leftArrow}></img>
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              className="btn"
-              name={RIGHT}
-              onClick={(event: MouseEvent<HTMLButtonElement>) =>
-                handleStepsButtons(event)
-              }
-            >
-              <img src={rightArrow}></img>
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* ------------------------------------------------------------------------------ */}
+      </div>
+      <Arrows numStep={numStep} handleStepsButtons={handleStepsButtons} />
     </div>
   );
 };

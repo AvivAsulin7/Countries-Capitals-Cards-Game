@@ -1,7 +1,5 @@
 import { useState, MouseEvent } from "react";
-
-const LEFT = "LEFT";
-const RIGHT = "RIGHT";
+import { LEFT, RIGHT, RESTART } from "../constants/constants";
 
 export const useStepper = () => {
   const [numStep, setNumStep] = useState<number>(1);
@@ -14,7 +12,11 @@ export const useStepper = () => {
     if (directionArrow == LEFT) setNumStep((prev) => prev - 1);
     else if (directionArrow == RIGHT) {
       setNumStep((prev) => prev + 1);
+    } else if (directionArrow === RESTART) {
+      setNumStep(1);
     }
+
+    console.log(numStep);
   };
 
   return { numStep, handleStepsButtons };

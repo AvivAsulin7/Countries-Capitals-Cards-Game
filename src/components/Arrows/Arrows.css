@@ -1,0 +1,7 @@
+.buttons {
+  width: 70%;
+  margin: auto auto 0;
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+}
