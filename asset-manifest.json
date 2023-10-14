@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Country-Capital-Game/static/css/main.c3868a47.css",
-    "main.js": "/Country-Capital-Game/static/js/main.53b9d9c2.js",
+    "main.css": "/Country-Capital-Game/static/css/main.eb8768ec.css",
+    "main.js": "/Country-Capital-Game/static/js/main.001973c7.js",
     "static/js/787.a7176296.chunk.js": "/Country-Capital-Game/static/js/787.a7176296.chunk.js",
     "static/media/music.mp3": "/Country-Capital-Game/static/media/music.8e5185131660a26cdf05.mp3",
     "static/media/gameOver.gif": "/Country-Capital-Game/static/media/gameOver.1dc48950cdc0edc91a92.gif",
@@ -11,12 +11,12 @@
     "static/media/sound.png": "/Country-Capital-Game/static/media/sound.421f044be219f4739b9f.png",
     "static/media/questionMark.jpg": "/Country-Capital-Game/static/media/questionMark.4da723829f75c88bac2f.jpg",
     "index.html": "/Country-Capital-Game/index.html",
-    "main.c3868a47.css.map": "/Country-Capital-Game/static/css/main.c3868a47.css.map",
-    "main.53b9d9c2.js.map": "/Country-Capital-Game/static/js/main.53b9d9c2.js.map",
+    "main.eb8768ec.css.map": "/Country-Capital-Game/static/css/main.eb8768ec.css.map",
+    "main.001973c7.js.map": "/Country-Capital-Game/static/js/main.001973c7.js.map",
     "787.a7176296.chunk.js.map": "/Country-Capital-Game/static/js/787.a7176296.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3868a47.css",
-    "static/js/main.53b9d9c2.js"
+    "static/css/main.eb8768ec.css",
+    "static/js/main.001973c7.js"
   ]
 }
