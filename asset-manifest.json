@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/country-capital-game/static/css/main.c3868a47.css",
-    "main.js": "/country-capital-game/static/js/main.c3e738a2.js",
-    "static/js/787.a7176296.chunk.js": "/country-capital-game/static/js/787.a7176296.chunk.js",
-    "static/media/music.mp3": "/country-capital-game/static/media/music.8e5185131660a26cdf05.mp3",
-    "static/media/gameOver.gif": "/country-capital-game/static/media/gameOver.1dc48950cdc0edc91a92.gif",
-    "static/media/gameWin.gif": "/country-capital-game/static/media/gameWin.90c7cd0587da058c35bf.gif",
-    "static/media/countries.webp": "/country-capital-game/static/media/countries.16c234d5a01506e2d6a7.webp",
-    "static/media/noSound.png": "/country-capital-game/static/media/noSound.69ada514e55cdf9e89f8.png",
-    "static/media/sound.png": "/country-capital-game/static/media/sound.421f044be219f4739b9f.png",
-    "static/media/questionMark.jpg": "/country-capital-game/static/media/questionMark.4da723829f75c88bac2f.jpg",
-    "index.html": "/country-capital-game/index.html",
-    "main.c3868a47.css.map": "/country-capital-game/static/css/main.c3868a47.css.map",
-    "main.c3e738a2.js.map": "/country-capital-game/static/js/main.c3e738a2.js.map",
-    "787.a7176296.chunk.js.map": "/country-capital-game/static/js/787.a7176296.chunk.js.map"
+    "main.css": "/Country-Capital-Game/static/css/main.c3868a47.css",
+    "main.js": "/Country-Capital-Game/static/js/main.53b9d9c2.js",
+    "static/js/787.a7176296.chunk.js": "/Country-Capital-Game/static/js/787.a7176296.chunk.js",
+    "static/media/music.mp3": "/Country-Capital-Game/static/media/music.8e5185131660a26cdf05.mp3",
+    "static/media/gameOver.gif": "/Country-Capital-Game/static/media/gameOver.1dc48950cdc0edc91a92.gif",
+    "static/media/gameWin.gif": "/Country-Capital-Game/static/media/gameWin.90c7cd0587da058c35bf.gif",
+    "static/media/countries.webp": "/Country-Capital-Game/static/media/countries.16c234d5a01506e2d6a7.webp",
+    "static/media/noSound.png": "/Country-Capital-Game/static/media/noSound.69ada514e55cdf9e89f8.png",
+    "static/media/sound.png": "/Country-Capital-Game/static/media/sound.421f044be219f4739b9f.png",
+    "static/media/questionMark.jpg": "/Country-Capital-Game/static/media/questionMark.4da723829f75c88bac2f.jpg",
+    "index.html": "/Country-Capital-Game/index.html",
+    "main.c3868a47.css.map": "/Country-Capital-Game/static/css/main.c3868a47.css.map",
+    "main.53b9d9c2.js.map": "/Country-Capital-Game/static/js/main.53b9d9c2.js.map",
+    "787.a7176296.chunk.js.map": "/Country-Capital-Game/static/js/787.a7176296.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c3868a47.css",
-    "static/js/main.c3e738a2.js"
+    "static/js/main.53b9d9c2.js"
   ]
 }
