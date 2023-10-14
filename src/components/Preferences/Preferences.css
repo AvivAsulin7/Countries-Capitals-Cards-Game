@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.h1-preference {
+  margin-bottom: 30px;
+}
+
 .preferences-div {
   display: flex;
 }
@@ -17,6 +21,10 @@
   border-radius: 20%;
   box-shadow: 0 0 0 5px #272829, 0 0 10px #272829, 0 0 15px #272829,
     0 0 20px #272829;
+}
+
+.preference-title {
+  margin-bottom: 8px;
 }
 
 /* Style for the options */
@@ -36,6 +44,7 @@
   color: #272829;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 4px;
 }
 
 /* Style for the selected option */

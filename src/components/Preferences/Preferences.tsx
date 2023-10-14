@@ -75,12 +75,12 @@ const Preferences = () => {
         animate="visible"
         initial="hidden"
       >
-        <h1>Select your preferences</h1>
+        <h1 className="h1-preference">Select your preferences</h1>
         <div className="preferences-div">
           {preferencesArray.map((preference) => {
             return (
               <Box>
-                <h4>{preference.title}</h4>
+                <h4 className="preference-title">{preference.title}</h4>
                 <div>
                   <img src={preference.image}></img>
                 </div>
