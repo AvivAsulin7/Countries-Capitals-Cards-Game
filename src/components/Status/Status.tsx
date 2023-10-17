@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useRef } from "react";
 import "./Status.css";
 import { settingReducerType } from "../../redux/types";
 import { useSelector } from "react-redux";

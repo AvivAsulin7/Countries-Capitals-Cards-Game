@@ -9,14 +9,12 @@ export const useStepper = () => {
 
     if (numStep === 1 && directionArrow === LEFT) return;
 
-    if (directionArrow == LEFT) setNumStep((prev) => prev - 1);
-    else if (directionArrow == RIGHT) {
+    if (directionArrow === LEFT) setNumStep((prev) => prev - 1);
+    else if (directionArrow === RIGHT) {
       setNumStep((prev) => prev + 1);
     } else if (directionArrow === RESTART) {
       setNumStep(1);
     }
-
-    console.log(numStep);
   };
 
   return { numStep, handleStepsButtons };

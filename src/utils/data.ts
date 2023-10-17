@@ -1,20 +1,27 @@
-import { countreyType } from "../types/types";
+import { countryType, cardType } from "../types/types";
 import questionMark from "../images/questionMark.jpg";
-const CAPITAL = "capital";
-const COUNTRY = "country";
+import { countries } from "./countries";
 
-const wcc = require("world-countries-capitals");
+function shuffleArray(array: countryType[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-export default (amount: number) => {
-  const data = wcc.getNRandomCountriesData(Math.floor(amount / 2));
+const generateRandomCards = (amount: number) => {
+  const shuffledData: countryType[] = [...countries];
 
-  let objectsArray: any[] = [];
+  shuffleArray(shuffledData);
 
-  data.forEach((item: countreyType) => {
+  const randomElements = shuffledData.slice(0, Math.floor(amount / 2));
+
+  let objectsArray: cardType[] = [];
+
+  randomElements.forEach((item: countryType) => {
     // Add the country object
     objectsArray.push({
       title: item.country,
-      type: COUNTRY,
       match: item.capital,
       img: item.flag,
       onPress: false,
@@ -24,7 +31,6 @@ export default (amount: number) => {
     // Add the capital object
     objectsArray.push({
       title: item.capital,
-      type: CAPITAL,
       match: item.country,
       img: questionMark,
       onPress: false,
@@ -34,7 +40,7 @@ export default (amount: number) => {
 
   objectsArray = objectsArray.sort(() => Math.random() - 0.5);
 
-  console.log(objectsArray);
-
   return objectsArray;
 };
+
+export default generateRandomCards;

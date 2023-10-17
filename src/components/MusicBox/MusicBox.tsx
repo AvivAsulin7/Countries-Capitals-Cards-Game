@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { variants } from "../../animation/variants";
 
 const MusicBox = () => {
-  const [playSound, setPlaySound] = useState(false);
+  const [playSound, setPlaySound] = useState<boolean>(false);
 
   const src = require("../../audio/music.mp3");
 

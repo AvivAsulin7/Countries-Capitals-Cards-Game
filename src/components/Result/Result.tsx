@@ -27,6 +27,7 @@ const Result = ({ handleStepsButtons }: propsResultAndArrows) => {
       <img
         src={settingReducer.numOfMistakes < 1 ? gameOver : gameWin}
         className="win-lose"
+        alt="status"
       />
       <button
         className="restart"

@@ -1,4 +1,4 @@
-import react, { useEffect } from "react";
+import { useEffect } from "react";
 import "./Preferences.css";
 import countries from "../../images/countries.png";
 import mistakes from "../../images/mistakes.png";
@@ -22,8 +22,6 @@ const Preferences = () => {
   const { settingReducer } = useSelector<settingReducerType>(
     (state) => state
   ) as any;
-
-  console.log(settingReducer);
 
   useEffect(() => {
     disptach(restart_game());
@@ -77,17 +75,18 @@ const Preferences = () => {
       >
         <h1 className="h1-preference">Select your preferences</h1>
         <div className="preferences-div">
-          {preferencesArray.map((preference) => {
+          {preferencesArray.map((preference, index) => {
             return (
-              <Box>
+              <Box key={index}>
                 <h4 className="preference-title">{preference.title}</h4>
                 <div>
-                  <img src={preference.image}></img>
+                  <img src={preference.image} alt="preference"></img>
                 </div>
                 <div className="options">
-                  {preference.arguments.map((option) => {
+                  {preference.arguments.map((option, index) => {
                     return (
                       <div
+                        key={index}
                         className={`option ${
                           preference.state === option ? "selected" : ""
                         }`}

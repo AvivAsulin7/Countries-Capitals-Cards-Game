@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 
-export type countreyType = {
+export type countryType = {
   alcohol_prohibition: string;
   area: { km2: number; mi2: number };
   capital: string;
@@ -11,17 +11,16 @@ export type countreyType = {
   drive_direction: string;
   famous_for: string;
   flag: string;
-  is_landlocked: false;
+  is_landlocked: boolean;
   iso: { numeric: string; alpha_2: string; alpha_3: string };
   language_codes: string[];
   native_language: string[];
-  phone_code: string;
+  phone_code?: string;
   tld: string;
 };
 
 export interface cardType {
   title: string;
-  type: string;
   match: string;
   img: string;
   onPress: boolean;

@@ -1,4 +1,4 @@
-import { cardType, propsCard } from "../../types/types";
+import { propsCard } from "../../types/types";
 import "./Card.css";
 import { useDispatch, useSelector } from "react-redux";
 import { choose_card } from "../../redux/actions";
@@ -17,7 +17,7 @@ const Card = ({ item, key }: propsCard) => {
 
   const backgroundImageCard = {
     background: `linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(${
-      settingReducer.difficulty == HARD ? questionMark : item.img
+      settingReducer.difficulty === HARD ? questionMark : item.img
     }) no-repeat`,
     backgroundSize: "cover",
   };

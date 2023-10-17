@@ -37,13 +37,12 @@ export default (state = initialState, action: actionType) => {
         };
 
     case CORRECT_MATCH:
-      console.log("correct", state);
       return {
         ...state,
         data: state.data.filter(
           (item: cardType) =>
-            item.title != state.userChoice[0].title &&
-            item.title != state.userChoice[1].title
+            item.title !== state.userChoice[0].title &&
+            item.title !== state.userChoice[1].title
         ),
         userChoice: [],
       };

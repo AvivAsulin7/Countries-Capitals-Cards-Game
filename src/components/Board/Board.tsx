@@ -1,4 +1,4 @@
-import { useEffect, useState, MouseEvent } from "react";
+import { useEffect, useState } from "react";
 import "./Board.css";
 import { PropsBoard, cardType } from "../../types/types";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +36,7 @@ const Board = ({ data }: PropsBoard) => {
   const handleChoiceUser = () => {
     let first: cardType = globalState.userChoice[0];
     let second: cardType = globalState.userChoice[1];
-    console.log(first, second);
+
     if (first.title === second.match || first.match === second.title) {
       setIsGoodMatch(true);
       dispatch(correct_match());

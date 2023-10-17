@@ -11,7 +11,7 @@ import { propsResultAndArrows } from "../../types/types";
 const Arrows = ({ numStep, handleStepsButtons }: propsResultAndArrows) => {
   return (
     <div>
-      {numStep != 3 && (
+      {numStep !== 3 && (
         <motion.div
           variants={variants}
           animate="visibleArrows"
@@ -31,7 +31,7 @@ const Arrows = ({ numStep, handleStepsButtons }: propsResultAndArrows) => {
               handleStepsButtons(event)
             }
           >
-            <img src={leftArrow}></img>
+            <img src={leftArrow} alt="left-arrow"></img>
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.2 }}
@@ -41,7 +41,7 @@ const Arrows = ({ numStep, handleStepsButtons }: propsResultAndArrows) => {
               handleStepsButtons(event)
             }
           >
-            <img src={rightArrow}></img>
+            <img src={rightArrow} alt="right-arrow"></img>
           </motion.button>
         </motion.div>
       )}
