@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Country-Capital-Game/static/css/main.eb8768ec.css",
-    "main.js": "/Country-Capital-Game/static/js/main.4ec61411.js",
-    "static/js/787.a7176296.chunk.js": "/Country-Capital-Game/static/js/787.a7176296.chunk.js",
-    "static/media/music.mp3": "/Country-Capital-Game/static/media/music.8e5185131660a26cdf05.mp3",
-    "static/media/gameOver.gif": "/Country-Capital-Game/static/media/gameOver.1dc48950cdc0edc91a92.gif",
-    "static/media/gameWin.gif": "/Country-Capital-Game/static/media/gameWin.90c7cd0587da058c35bf.gif",
-    "static/media/countries.webp": "/Country-Capital-Game/static/media/countries.16c234d5a01506e2d6a7.webp",
-    "static/media/noSound.png": "/Country-Capital-Game/static/media/noSound.69ada514e55cdf9e89f8.png",
-    "static/media/sound.png": "/Country-Capital-Game/static/media/sound.421f044be219f4739b9f.png",
-    "static/media/questionMark.jpg": "/Country-Capital-Game/static/media/questionMark.4da723829f75c88bac2f.jpg",
-    "index.html": "/Country-Capital-Game/index.html",
-    "main.eb8768ec.css.map": "/Country-Capital-Game/static/css/main.eb8768ec.css.map",
-    "main.4ec61411.js.map": "/Country-Capital-Game/static/js/main.4ec61411.js.map",
-    "787.a7176296.chunk.js.map": "/Country-Capital-Game/static/js/787.a7176296.chunk.js.map"
+    "main.css": "/Countries-Capitals-Cards-Game/static/css/main.eb8768ec.css",
+    "main.js": "/Countries-Capitals-Cards-Game/static/js/main.de180711.js",
+    "static/js/787.a7176296.chunk.js": "/Countries-Capitals-Cards-Game/static/js/787.a7176296.chunk.js",
+    "static/media/music.mp3": "/Countries-Capitals-Cards-Game/static/media/music.8e5185131660a26cdf05.mp3",
+    "static/media/gameOver.gif": "/Countries-Capitals-Cards-Game/static/media/gameOver.1dc48950cdc0edc91a92.gif",
+    "static/media/gameWin.gif": "/Countries-Capitals-Cards-Game/static/media/gameWin.90c7cd0587da058c35bf.gif",
+    "static/media/countries.webp": "/Countries-Capitals-Cards-Game/static/media/countries.16c234d5a01506e2d6a7.webp",
+    "static/media/noSound.png": "/Countries-Capitals-Cards-Game/static/media/noSound.69ada514e55cdf9e89f8.png",
+    "static/media/sound.png": "/Countries-Capitals-Cards-Game/static/media/sound.421f044be219f4739b9f.png",
+    "static/media/questionMark.jpg": "/Countries-Capitals-Cards-Game/static/media/questionMark.4da723829f75c88bac2f.jpg",
+    "index.html": "/Countries-Capitals-Cards-Game/index.html",
+    "main.eb8768ec.css.map": "/Countries-Capitals-Cards-Game/static/css/main.eb8768ec.css.map",
+    "main.de180711.js.map": "/Countries-Capitals-Cards-Game/static/js/main.de180711.js.map",
+    "787.a7176296.chunk.js.map": "/Countries-Capitals-Cards-Game/static/js/787.a7176296.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eb8768ec.css",
-    "static/js/main.4ec61411.js"
+    "static/js/main.de180711.js"
   ]
 }
